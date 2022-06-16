@@ -1,0 +1,20 @@
+kind: Deployment                      #deployment manages the app and the desire state of the application 
+metadata:                             #this metadata field its for my deployment
+  name: myapp-deployment
+  namespace: dev
+spec:
+  replicas: 3
+  selector:
+    matchLabels:                      # associates your deployment with your pods
+      app: myapp-deployment
+  template:
+    metadata:                          # this metadata its for my pod
+      labels:
+        app: myapp-deployment          
+        env: demo
+    spec:
+      containers:
+      - name: myapp-deployment
+        image: nginx
+        ports:
+        - containerPort: 80  
