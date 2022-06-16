@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-project
+  namespace: dev
+  labels:
+    app: web
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: new-project
+  template:
+    metadata:
+      labels:
+        app: new-project
+    spec:
+      containers:
+        - name: front-end
+          image: nginx
+          ports:
+            - containerPort: 80
+        - name: nginx
+          image: nickchase/rss-php-nginx:v1
+          ports:
+            - containerPort: 88
