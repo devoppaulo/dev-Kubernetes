@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+  namespace: ziyotek-ns
+  labels:
+    app: web
+spec:
+  containers:
+    - name: my-httpd
+      image: httpd:latest
+      ports:
+        - containerPort: 80
