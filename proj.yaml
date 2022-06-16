@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-project
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: new-project
+  template:
+    metadata:
+      labels:
+        app: new-project
+        env: demo
+    spec:
+      containers:
+      - name: nginx
+        image:  paulogugas/devops21-docker:v1
+        ports:
+        - containerPort: 80
