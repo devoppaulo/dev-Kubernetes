@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ziyotekapp
+  namespace: development
+spec:
+  selector:
+    matchLabels:
+      app: ziyotekapp
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: ziyotekapp
+    spec:
+      containers:
+      - name: nginx
+        image: paulogugas/devops22-docker:v5
+        ports:
+        - containerPort: 80
+      imagePullSecrets: 
+      - name: mydockerhub  
