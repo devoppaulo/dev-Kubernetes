@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: myapp
+  labels:
+    ziyotek: devops
+    env: demo
+    image: nginx
+    
+spec:
+  containers:
+    - name: myapp
+      image: nginx
+      ports:
+        - containerPort: 80
+
+    - name: busybox
+      image: busybox
+      command: ['sh', '-c', 'while true; do sleep 30; done;']     
